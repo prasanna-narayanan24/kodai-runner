@@ -1,3 +1,18 @@
 .page-content-wrapper {
     height: 100vh;
 }
+
+.score-container {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    left: 0;
+    text-align: center;
+    background-color: rgba(255, 255, 255, .5);
+}
+
+.progress-container {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}

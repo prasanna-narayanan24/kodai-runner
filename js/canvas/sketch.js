@@ -27,7 +27,7 @@ function preload() {
 let terrain = [];
 
 function setup() {
-    createCanvas(500, 800, WEBGL).parent("canvas");
+    createCanvas(600, windowHeight, WEBGL).parent("canvas");
     cols = w / scl;
     rows = h / scl;
 
@@ -103,7 +103,6 @@ function draw() {
 
     runner.update();
     runner.show();
-    // new Tree(treeSprite).show();
 
     // translate(w/2, h/2);
 
