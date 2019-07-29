@@ -17,11 +17,11 @@ let trees = [];
 let isShieldActive = false;
 
 function preload() {
-    spritesheet = loadImage("assetsimg/male-run-cycle.png")
+    spritesheet = loadImage("./assets/img/male-run-cycle.png")
     for (let i = 1; i <= 5; i++)
-        coconuts.push(loadImage(`assetsimg/coco/coconut${i}.png`))
-    sarbathSprite = loadImage("assetsimg/Water.png");
-    shieldSprite = loadImage("assetsimg/shield.png");
+        coconuts.push(loadImage(`./assets/img/coco/coconut${i}.png`))
+    sarbathSprite = loadImage("./assets/img/Water.png");
+    shieldSprite = loadImage("./assets/img/shield.png");
 }
 
 let terrain = [];
