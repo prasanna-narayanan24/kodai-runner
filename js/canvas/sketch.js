@@ -15,6 +15,8 @@ let hiScore = window.localStorage.getItem('hi-score');
 let treeSprite;
 let trees = [];
 let isShieldActive = false;
+let bgScore;
+let sarbathCatchScore;
 
 function preload() {
     spritesheet = loadImage("./assets/img/male-run-cycle.png")
@@ -22,6 +24,8 @@ function preload() {
         coconuts.push(loadImage(`./assets/img/coco/coconut${i}.png`))
     sarbathSprite = loadImage("./assets/img/Water.png");
     shieldSprite = loadImage("./assets/img/shield.png");
+    bgScore = loadSound("./assets/sounds/kodai-runner-bg.mp3");
+    sarbathCatchScore = loadSound("./assets/sounds/caught-sarbath.mp3");
 }
 
 let terrain = [];
@@ -45,9 +49,12 @@ function setup() {
 }
 
 function draw() {
-
     frameRate(_frameRate);
     score = frameCount;
+
+    if (!bgScore.isPlaying()) {
+        bgScore.play();
+    }
 
     if (frameCount % 10 == 0) {
         health -= 1
@@ -145,6 +152,8 @@ function draw() {
             isCollected = true;
             sarbath.splice(i, 1)
             health = (health + 10) % 100;
+            if (!sarbathCatchScore.isPlaying())
+                sarbathCatchScore.play();
         }
 
         if (!isCollected) {
@@ -211,6 +220,7 @@ function draw() {
 function stopGame() {
     isStopped = true;
     new EndGameScreen().show();
+    bgScore.stop();
     if (hiScore == "null" || score > hiScore) window.localStorage.setItem('hi-score', score);
     noLoop();
 }
